@@ -14,6 +14,11 @@ public class Empleado {
 
 	public Empleado() {
 	}
+	
+	public Empleado(int idEmpleado, String nombreEmpleado) {
+		this.idEmpleado = idEmpleado;
+		this.nombreEmpleado = nombreEmpleado;
+	}
 
 	//Getter and Setter
 	public int getIdEmpleado() {
@@ -47,6 +52,6 @@ public class Empleado {
 	}
 	
 	public void estadoEmpleado() {
-		System.out.println("ID: " + idEmpleado + " Nombre: " + nombreEmpleado + "Total Ventas: "+ totalVentas);
+		System.out.println("ID: " + idEmpleado + " Nombre: " + nombreEmpleado + " Total Ventas: "+ totalVentas);
 	}
 }

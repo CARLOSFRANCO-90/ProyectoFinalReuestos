@@ -105,6 +105,6 @@ public class Factura {
 				+ "Teléfono: " + cliente.getDatoCliente().getTelefono());
 		System.out.println("Lista Items: ");
 		items.recorrerArbolFactura();
-		System.out.println("Valor Total: " + items.valorTotalFactura());		
+		System.out.println("Valor Total: " + items.valorTotalFactura(items.root));		
 	}
 }

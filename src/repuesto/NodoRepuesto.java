@@ -6,10 +6,10 @@ public class NodoRepuesto {
 	NodoRepuesto right;
 	
 	//Constructores
-	public NodoRepuesto(Repuesto repuesto, NodoRepuesto left, NodoRepuesto right) {
+	public NodoRepuesto(Repuesto repuesto) {
 		this.repuesto = repuesto;
-		this.left = left;
-		this.right = right;
+		this.left = null;
+		this.right = null;
 	}
 
 	public NodoRepuesto() {

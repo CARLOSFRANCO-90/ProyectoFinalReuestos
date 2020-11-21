@@ -1,16 +1,18 @@
 package repuesto;
 
 public class arbRepuesto {
-NodoRepuesto root;
+    public NodoRepuesto root;
 	
 	int repuestoNumero =0;
+	
+	
 	
 	//agregar un nuevo nodo al arbol
 	 public NodoRepuesto addRepuesto(NodoRepuesto arbTemp, NodoRepuesto nNodo){
 		 if (arbTemp == null) {
 	            arbTemp = nNodo;
 	            repuestoNumero++;
-	            System.out.println("El repuesto " +nNodo.repuesto.nombrerepuesto + " se agrego correctamente");
+	            //System.out.println("El repuesto " +nNodo.repuesto.nombrerepuesto + " se agrego correctamente");
 	     }else {
 	    	 if (!(nNodo.getRepuesto().idRepuesto==arbTemp.getRepuesto().getIdRepuesto())) {
 	    		 if (nNodo.getRepuesto().getIdRepuesto()<arbTemp.getRepuesto().getIdRepuesto()) {
@@ -74,11 +76,8 @@ NodoRepuesto root;
 	}
 	
 	//Valor inventario
-	public double valorTotalFactura() {
-		return valorTotalFactura(root);
-	}
 	double totalCuenta=0;
-	private double valorTotalInventario(NodoRepuesto root){ 
+	public double valorTotalInventario(NodoRepuesto root){ 
 		if (root == null) {
 			System.out.println("No hay repuestos en el sistema");
 		}else {
@@ -99,7 +98,7 @@ NodoRepuesto root;
 				if (root == null) {
 					System.out.println("No hay items en la factura");
 				}else {
-					totalFactura = totalFactura + (root.getRepuesto().getCantidad()*root.getRepuesto().getPrecio());
+					totalFactura += root.getRepuesto().getCantidad()*root.getRepuesto().getPrecio();
 					if (root.getLeft() != null){
 						valorTotalFactura(root.left);
 					}

@@ -39,46 +39,36 @@ public class listaClienteDE {
 		this.tam = tam;
 	}
 	
-    //Método para adicionar un nuevo cliente a la lista
-    public void addCliente(Cliente datosCliente){
-        if (datosCliente == null) {
-            return;
-        }
-        if(cabCliente == null){
-            cabCliente = new NodoCliente();
-            cabCliente.datoCliente = datosCliente;
-            ultCliente.datoCliente = datosCliente;
-            tam++;
-        }
-        else{
-            if(buscarClienteXId(datosCliente.idcliente)==false){
-                NodoCliente tmp = ultCliente;
-                NodoCliente newNode = new NodoCliente();
-                newNode.datoCliente = datosCliente;
-                tmp.sig = newNode;
-                newNode.ant = tmp;
-                ultCliente = tmp;
-                tam++;
-                return;
-            }else{
-                System.out.println("El cliente ya se encuentra registrado en el sistema.");
-            }
-        }
-        return;
+	public boolean isEmpty() {
+        return cabCliente == null;
     }
-    
+	
+    //Método para adicionar un nuevo cliente a la lista
+	public void addCliente(Cliente datosCliente) {
+        NodoCliente newElement = new NodoCliente();
+        newElement.setDatoCliente(datosCliente);
+        if (isEmpty()) {
+            cabCliente = newElement;
+            ultCliente = newElement;
+
+        } else {
+            newElement.setAnt(ultCliente);
+            ultCliente.setSig(newElement);
+            ultCliente = newElement;
+        }
+        tam++;
+    }
+	
   //MÃ©todo para buscar un cliente en la lista por su id
     public boolean buscarClienteXId(int idClienteBuscar){
         boolean encontrado = false;
         if(!(cabCliente==null)){
             NodoCliente temp = cabCliente;
-            while(temp != ultCliente && encontrado != true){
+            while(temp != null && encontrado != true){
                 if (idClienteBuscar == temp.datoCliente.idcliente){
                     encontrado = true;
                 }
-                else{
-                    temp = temp.sig;
-                }
+                temp = temp.sig;
             }
         }
         return encontrado;
@@ -101,9 +91,9 @@ public class listaClienteDE {
        
   //MÃ©todo para mostar todos los elementos de la lista
     public void listarClientes(){
-        if(!(cabCliente==null)){
+        if(!isEmpty()){
             NodoCliente temp = cabCliente;
-            while(temp != ultCliente){
+            while(temp != null){
                 temp.datoCliente.estadoCliente();
                 temp = temp.sig;
             }
@@ -162,6 +152,7 @@ public class listaClienteDE {
             System.out.println("No hay clientes en el registrados sistema.");
         }
     	double promedio = count / tam;
+    	System.out.println("El promedio de compras totales por cliente es: " +promedio);
         return promedio;
     }
 }

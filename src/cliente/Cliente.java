@@ -20,7 +20,6 @@ public class Cliente {
 	}
 
 	public Cliente(int idcliente, String nobreCliente, long telefono, String tipoCliente) {
-		super();
 		this.idcliente = idcliente;
 		this.nobreCliente = nobreCliente;
 		this.telefono = telefono;
@@ -76,6 +75,6 @@ public class Cliente {
 	
 	//Método par mostrar el estado del cliente
     public void estadoCliente(){
-    	System.out.println("ID: " + idcliente + " Nombre: " + nobreCliente + " Teléfono: " + telefono + "Tipo Cliente: " + tipoCliente);
+    	System.out.println("ID: " + idcliente + " Nombre: " + nobreCliente + " Tel�fono: " + telefono + ", Tipo Cliente: " + tipoCliente);
     }	
 }
