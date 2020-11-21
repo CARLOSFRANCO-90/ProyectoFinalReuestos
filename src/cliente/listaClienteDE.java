@@ -39,9 +39,7 @@ public class listaClienteDE {
 		this.tam = tam;
 	}
 	
-	//Metodo insertar
-
-    //MÃ©todo para adicionar un nuevo cliente a la lista
+    //Método para adicionar un nuevo cliente a la lista
     public void addCliente(Cliente datosCliente){
         if (datosCliente == null) {
             return;

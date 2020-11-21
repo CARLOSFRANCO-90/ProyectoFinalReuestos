@@ -41,6 +41,23 @@ NodoRepuesto root;
 		}
 	}
 	
+	public void recorrerArbolFactura() {
+		recorrerArbol(root);
+	}
+	// recorrer arbol Factura 
+	private void recorrerArbolFactura(NodoRepuesto root){ 
+		if (root == null) {
+			System.out.println("No hay factura registradas");
+		}else {
+			root.getRepuesto().estadoRepuestoFactura();
+			if (root.getLeft() != null){
+		        recorrerArbol(root.left);
+		    }
+		    if (root.getRight() != null){
+		    	recorrerArbol(root.right);
+		    }
+		}
+	}
 	// retorna un metodo en especial apartir de la id
 	public NodoRepuesto returnNodo(NodoRepuesto nodo, int id) {
 		if (nodo == null) {
@@ -56,9 +73,12 @@ NodoRepuesto root;
 		}
 	}
 	
-	//Promedio de compras totales por cliente
+	//Valor inventario
+	public double valorTotalFactura() {
+		return valorTotalFactura(root);
+	}
 	double totalCuenta=0;
-	public double valorTotalInventario(NodoRepuesto root){ 
+	private double valorTotalInventario(NodoRepuesto root){ 
 		if (root == null) {
 			System.out.println("No hay repuestos en el sistema");
 		}else {
@@ -72,6 +92,23 @@ NodoRepuesto root;
 		}
 		return totalCuenta;
 	}
+	
+	//Valor factura
+	double totalFactura=0;
+			public double valorTotalFactura(NodoRepuesto root){ 
+				if (root == null) {
+					System.out.println("No hay items en la factura");
+				}else {
+					totalFactura = totalFactura + (root.getRepuesto().getCantidad()*root.getRepuesto().getPrecio());
+					if (root.getLeft() != null){
+						valorTotalFactura(root.left);
+					}
+					if (root.getRight() != null){
+						valorTotalFactura(root.right);
+					}
+				}
+				return totalCuenta;
+			}
 	
 	//Listar repuestos que tengan un stock menor o igual a un numero ingresado
 	public void repuestosStockMenor(NodoRepuesto root, int numero){ 

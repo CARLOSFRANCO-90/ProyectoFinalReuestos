@@ -86,5 +86,10 @@ public class Repuesto {
 	//Estado Repuesto
 	public void estadoRepuesto(){
     	System.out.println("ID: " + idRepuesto + " Nombre: " + nombrerepuesto + " Stock: " + stock + "Precio: " + precio);
+    }
+	
+	public void estadoRepuestoFactura(){
+    	System.out.println("ID: " + idRepuesto + " Nombre: " + nombrerepuesto + " Cantidad: " + cantidad + " Precio: " + precio + "precioTotal: " + precioTotal);
     }	
+	
 }
